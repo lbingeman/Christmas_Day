@@ -15,4 +15,3 @@ class levelBricks implements bricksLevel {
 
 
   
-

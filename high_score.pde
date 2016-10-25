@@ -33,5 +33,3 @@ class highPlayer implements player {
 }
 int numberOfPlays = -1; 
 ArrayList peopleWhoPlayed;
-
-

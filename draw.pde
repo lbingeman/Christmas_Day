@@ -25,21 +25,12 @@ void draw()
     image(img, 0, 0);
     fill(255, 0, 0);
     noStroke(); 
-    //draw cursor 
-    rect(mouseX - lengthOfBar, 450, lengthOfBar, 20);  
-    rect(mouseX, 450, lengthOfBar, 20); 
-    //set acceleration based on level
-    if (theLevel < 2) {
-      ball1.setAcceleration(.01);
-    }
-    else {
-      ball1.setAcceleration(.01+.001*(theLevel));
-    }
+    //draw bar 
+    rect(mouseX - lengthOfBar, 450, 2*lengthOfBar, 20);  
+
     //run main ball functions
+    ball1.setAcceleration(theLevel);
     ball1.update(); 
-    ball1.xPosi();
-    ball1.yPosi();
-    ball1.acceleration();
     //run large bar power-up functions
     largebar.time();
     largebar.setX();
@@ -146,6 +137,5 @@ void draw()
     }
   }
   float checkForCheaters = score%7*10+score%6; //verification score
-  label6.setText("" + checkForCheaters); //display verification score
+  //label6.setText("" + checkForCheaters); //display verification score
 }
-

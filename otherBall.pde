@@ -1,5 +1,5 @@
 //code for running the extra balls 
-class otherBall implements Ball {
+class otherBall extends Ball {
   float size = 0;
   float xPos = 0;
   float yPos = 250;
@@ -115,4 +115,3 @@ class otherBall implements Ball {
     size += (1+amount);
   }
 }
-

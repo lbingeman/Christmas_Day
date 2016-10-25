@@ -1,154 +1,153 @@
-/* =========================================================
- * ====                   WARNING                        ===
- * =========================================================
- * The code in this tab has been generated from the GUI form
- * designer and care should be taken when editing this file.
- * Only add/edit code inside the event handlers i.e. only
- * use lines between the matching comment tags. e.g.
+///* =========================================================
+// * ====                   WARNING                        ===
+// * =========================================================
+// * The code in this tab has been generated from the GUI form
+// * designer and care should be taken when editing this file.
+// * Only add/edit code inside the event handlers i.e. only
+// * use lines between the matching comment tags. e.g.
 
- void myBtnEvents(GButton button) { //_CODE_:button1:12356:
-     // It is safe to enter your event code here  
- } //_CODE_:button1:12356:
+// void myBtnEvents(GButton button) { //_CODE_:button1:12356:
+//     // It is safe to enter your event code here  
+// } //_CODE_:button1:12356:
  
- * Do not rename this tab!
- * =========================================================
- */
+// * Do not rename this tab!
+// * =========================================================
+// */
 
-synchronized public void win_draw1(GWinApplet appc, GWinData data) { //_CODE_:window1:907891:
-  appc.background(196, 10, 10); 
-  //window1.setVisible(true);
-} //_CODE_:window1:907891:
+//synchronized public void win_draw1(GWinApplet appc, GWinData data) { //_CODE_:window1:907891:
+//  appc.background(196, 10, 10); 
+//  //window1.setVisible(true);
+//} //_CODE_:window1:907891:
 
-synchronized public void win_draw2(GWinApplet appc, GWinData data) { //_CODE_:scoreTable:766268:
-  appc.background(7, 247, 17);
-  if (gameOver == true) {
-    scoreTable.setVisible(true);
-    for (int i = 0; i<peopleWhoPlayed.size()-1; i++) {
-      highPlayer bb = (highPlayer) peopleWhoPlayed.get(i);
-      highPlayer cc = (highPlayer) peopleWhoPlayed.get(i+1);
-      if (bb.s < cc.s) {
-        float temp = bb.s; 
-        String temp2 = bb.n; 
-        bb.setTheScore(cc.s);
-        bb.setThePlayer(cc.n);
-        cc.setTheScore(temp);
-        cc.setThePlayer(temp2);
-      }
-    }
-  }
-  else {
-    scoreTable.setVisible(false);
-  }
-  highPlayer zz = (highPlayer) peopleWhoPlayed.get(0);
-  zz.setTheVerification1();
-  zz.setTheVerification2();
-  scoreName.setText("1.          " + zz.n); 
-  label15.setText("" + zz.s);
-  verification1.setText("" + zz.v1);
-  verification2.setText("" + zz.v2);  
-  for (int i = 1; i < peopleWhoPlayed.size() && i < 9; i++) {
-    highPlayer aa = (highPlayer) peopleWhoPlayed.get(i);
-    aa.setTheVerification1();
-    aa.setTheVerification2();
-    scoreName.setText(scoreName.getText() + char(10) + (i+1) + ".          " + aa.n);
-    label15.setText(label15.getText() + char(10) + aa.s);
-    verification1.setText(verification1.getText() + char(10) + aa.v1);
-    verification2.setText(verification2.getText() + char(10) + aa.v2);
-  }
-} //_CODE_:scoreTable:766268:
+//synchronized public void win_draw2(GWinApplet appc, GWinData data) { //_CODE_:scoreTable:766268:
+//  appc.background(7, 247, 17);
+//  if (gameOver == true) {
+//    scoreTable.setVisible(true);
+//    for (int i = 0; i<peopleWhoPlayed.size()-1; i++) {
+//      highPlayer bb = (highPlayer) peopleWhoPlayed.get(i);
+//      highPlayer cc = (highPlayer) peopleWhoPlayed.get(i+1);
+//      if (bb.s < cc.s) {
+//        float temp = bb.s; 
+//        String temp2 = bb.n; 
+//        bb.setTheScore(cc.s);
+//        bb.setThePlayer(cc.n);
+//        cc.setTheScore(temp);
+//        cc.setThePlayer(temp2);
+//      }
+//    }
+//  }
+//  else {
+//    scoreTable.setVisible(false);
+//  }
+//  highPlayer zz = (highPlayer) peopleWhoPlayed.get(0);
+//  zz.setTheVerification1();
+//  zz.setTheVerification2();
+//  scoreName.setText("1.          " + zz.n); 
+//  label15.setText("" + zz.s);
+//  verification1.setText("" + zz.v1);
+//  verification2.setText("" + zz.v2);  
+//  for (int i = 1; i < peopleWhoPlayed.size() && i < 9; i++) {
+//    highPlayer aa = (highPlayer) peopleWhoPlayed.get(i);
+//    aa.setTheVerification1();
+//    aa.setTheVerification2();
+//    scoreName.setText(scoreName.getText() + char(10) + (i+1) + ".          " + aa.n);
+//    label15.setText(label15.getText() + char(10) + aa.s);
+//    verification1.setText(verification1.getText() + char(10) + aa.v1);
+//    verification2.setText(verification2.getText() + char(10) + aa.v2);
+//  }
+//} //_CODE_:scoreTable:766268:
 
-public void textfield1_change1(GTextField source, GEvent event) { //_CODE_:textfield1:386862:
-  println("textfield1 - GTextField event occured " + System.currentTimeMillis()%10000000 );
-} //_CODE_:textfield1:386862:
+//public void textfield1_change1(GTextField source, GEvent event) { //_CODE_:textfield1:386862:
+//  println("textfield1 - GTextField event occured " + System.currentTimeMillis()%10000000 );
+//} //_CODE_:textfield1:386862:
 
-public void button1_click1(GButton source, GEvent event) { //_CODE_:button1:506425:
-  println("button1 - GButton event occured " + System.currentTimeMillis()%10000000 );
-  if (highScoreNameEnter == false) {
-    highScoreNameEnter = true;
-    highPlayer b = new highPlayer(textfield1.getText(), score);
-    peopleWhoPlayed.add(b);
-    textfield1.setText("Enter Name");
-  }
-} //_CODE_:button1:506425:
+//public void button1_click1(GButton source, GEvent event) { //_CODE_:button1:506425:
+//  println("button1 - GButton event occured " + System.currentTimeMillis()%10000000 );
+//  if (highScoreNameEnter == false) {
+//    highScoreNameEnter = true;
+//    highPlayer b = new highPlayer(textfield1.getText(), score);
+//    peopleWhoPlayed.add(b);
+//    textfield1.setText("Enter Name");
+//  }
+//} //_CODE_:button1:506425:
 
 
 
-// Create all the GUI controls. 
-// autogenerated do not edit
-public void createGUI(){
-  G4P.messagesEnabled(false);
-  G4P.setGlobalColorScheme(GCScheme.BLUE_SCHEME);
-  G4P.setCursor(ARROW);
-  if(frame != null)
-    frame.setTitle("Christmas Day");
-  label6 = new GLabel(this, 417, 6, 80, 20);
-  label6.setOpaque(false);
-  window1 = new GWindow(this, "Code", 0, 0, 502, 384, false, JAVA2D);
-  window1.setActionOnClose(G4P.CLOSE_WINDOW);
-  window1.addDrawHandler(this, "win_draw1");
-  label1 = new GLabel(window1.papplet, 31, 35, 443, 329);
-  label1.setTextAlign(GAlign.LEFT, GAlign.TOP);
-  label1.setOpaque(false);
-  label2 = new GLabel(window1.papplet, 214, 7, 80, 20);
-  label2.setText("Code");
-  label2.setTextBold();
-  label2.setOpaque(false);
-  scoreTable = new GWindow(this, "High Score Table", 0, 0, 502, 383, false, JAVA2D);
-  scoreTable.addDrawHandler(this, "win_draw2");
-  label3 = new GLabel(scoreTable.papplet, 42, 67, 80, 20);
-  label3.setText("Name");
-  label3.setOpaque(false);
-  label4 = new GLabel(scoreTable.papplet, 40, 10, 80, 20);
-  label4.setText("Name:");
-  label4.setOpaque(false);
-  label5 = new GLabel(scoreTable.papplet, 230, 67, 80, 20);
-  label5.setTextAlign(GAlign.LEFT, GAlign.MIDDLE);
-  label5.setText("Score");
-  label5.setOpaque(false);
-  textfield1 = new GTextField(scoreTable.papplet, 134, 9, 160, 22, G4P.SCROLLBARS_NONE);
-  textfield1.setDefaultText("Enter Name");
-  textfield1.setOpaque(true);
-  textfield1.addEventHandler(this, "textfield1_change1");
-  button1 = new GButton(scoreTable.papplet, 312, 8, 44, 23);
-  button1.setText("enter");
-  button1.setLocalColorScheme(GCScheme.GOLD_SCHEME);
-  button1.addEventHandler(this, "button1_click1");
-  scoreName = new GLabel(scoreTable.papplet, 13, 97, 202, 262);
-  scoreName.setTextAlign(GAlign.LEFT, GAlign.TOP);
-  scoreName.setOpaque(false);
-  label15 = new GLabel(scoreTable.papplet, 230, 99, 79, 259);
-  label15.setTextAlign(GAlign.LEFT, GAlign.TOP);
-  label15.setOpaque(false);
-  verification1 = new GLabel(scoreTable.papplet, 322, 99, 55, 258);
-  verification1.setTextAlign(GAlign.LEFT, GAlign.TOP);
-  verification1.setOpaque(false);
-  verification2 = new GLabel(scoreTable.papplet, 384, 100, 56, 259);
-  verification2.setTextAlign(GAlign.LEFT, GAlign.TOP);
-  verification2.setOpaque(false);
-  label8 = new GLabel(scoreTable.papplet, 322, 66, 127, 20);
-  label8.setText("Verification Number");
-  label8.setOpaque(false);
-  label7 = new GLabel(scoreTable.papplet, 0, 361, 80, 20);
-  label7.setText("Version 2.1");
-  label7.setOpaque(false);
-}
+//// Create all the GUI controls. 
+//// autogenerated do not edit
+//public void createGUI(){
+//  G4P.messagesEnabled(false);
+//  G4P.setGlobalColorScheme(GCScheme.BLUE_SCHEME);
+//  G4P.setCursor(ARROW);
+//  if(frame != null)
+//    frame.setTitle("Christmas Day");
+//  label6 = new GLabel(this, 417, 6, 80, 20);
+//  label6.setOpaque(false);
+//  window1 = new GWindow(this, "Code", 0, 0, 502, 384, false, JAVA2D);
+//  window1.setActionOnClose(G4P.CLOSE_WINDOW);
+//  window1.addDrawHandler(this, "win_draw1");
+//  label1 = new GLabel(window1.papplet, 31, 35, 443, 329);
+//  label1.setTextAlign(GAlign.LEFT, GAlign.TOP);
+//  label1.setOpaque(false);
+//  label2 = new GLabel(window1.papplet, 214, 7, 80, 20);
+//  label2.setText("Code");
+//  label2.setTextBold();
+//  label2.setOpaque(false);
+//  scoreTable = new GWindow(this, "High Score Table", 0, 0, 502, 383, false, JAVA2D);
+//  scoreTable.addDrawHandler(this, "win_draw2");
+//  label3 = new GLabel(scoreTable.papplet, 42, 67, 80, 20);
+//  label3.setText("Name");
+//  label3.setOpaque(false);
+//  label4 = new GLabel(scoreTable.papplet, 40, 10, 80, 20);
+//  label4.setText("Name:");
+//  label4.setOpaque(false);
+//  label5 = new GLabel(scoreTable.papplet, 230, 67, 80, 20);
+//  label5.setTextAlign(GAlign.LEFT, GAlign.MIDDLE);
+//  label5.setText("Score");
+//  label5.setOpaque(false);
+//  textfield1 = new GTextField(scoreTable.papplet, 134, 9, 160, 22, G4P.SCROLLBARS_NONE);
+//  textfield1.setDefaultText("Enter Name");
+//  textfield1.setOpaque(true);
+//  textfield1.addEventHandler(this, "textfield1_change1");
+//  button1 = new GButton(scoreTable.papplet, 312, 8, 44, 23);
+//  button1.setText("enter");
+//  button1.setLocalColorScheme(GCScheme.GOLD_SCHEME);
+//  button1.addEventHandler(this, "button1_click1");
+//  scoreName = new GLabel(scoreTable.papplet, 13, 97, 202, 262);
+//  scoreName.setTextAlign(GAlign.LEFT, GAlign.TOP);
+//  scoreName.setOpaque(false);
+//  label15 = new GLabel(scoreTable.papplet, 230, 99, 79, 259);
+//  label15.setTextAlign(GAlign.LEFT, GAlign.TOP);
+//  label15.setOpaque(false);
+//  verification1 = new GLabel(scoreTable.papplet, 322, 99, 55, 258);
+//  verification1.setTextAlign(GAlign.LEFT, GAlign.TOP);
+//  verification1.setOpaque(false);
+//  verification2 = new GLabel(scoreTable.papplet, 384, 100, 56, 259);
+//  verification2.setTextAlign(GAlign.LEFT, GAlign.TOP);
+//  verification2.setOpaque(false);
+//  label8 = new GLabel(scoreTable.papplet, 322, 66, 127, 20);
+//  label8.setText("Verification Number");
+//  label8.setOpaque(false);
+//  label7 = new GLabel(scoreTable.papplet, 0, 361, 80, 20);
+//  label7.setText("Version 2.1");
+//  label7.setOpaque(false);
+//}
 
-// Variable declarations 
-// autogenerated do not edit
-GLabel label6; 
-GWindow window1;
-GLabel label1; 
-GLabel label2; 
-GWindow scoreTable;
-GLabel label3; 
-GLabel label4; 
-GLabel label5; 
-GTextField textfield1; 
-GButton button1; 
-GLabel scoreName; 
-GLabel label15; 
-GLabel verification1; 
-GLabel verification2; 
-GLabel label8; 
-GLabel label7; 
-
+//// Variable declarations 
+//// autogenerated do not edit
+//GLabel label6; 
+//GWindow window1;
+//GLabel label1; 
+//GLabel label2; 
+//GWindow scoreTable;
+//GLabel label3; 
+//GLabel label4; 
+//GLabel label5; 
+//GTextField textfield1; 
+//GButton button1; 
+//GLabel scoreName; 
+//GLabel label15; 
+//GLabel verification1; 
+//GLabel verification2; 
+//GLabel label8; 
+//GLabel label7; 

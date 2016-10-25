@@ -1,5 +1,19 @@
 //code for object redBall, the main play ball
-class RedBall implements Ball {
+abstract class Ball { //interface for balls
+  void update(){}
+  void bounceBack(){}
+  void xPosi(){}
+  void restart(){}
+  void yPosi(){}
+  abstract boolean acceleration();
+  abstract float getX();
+  abstract float getY();
+  void levelUp(){}
+  void setAcceleration(float number){}
+  void run(int number){}
+}
+
+class RedBall extends Ball {
   float size = 0;
   float xPos = 0;
   float yPos = 0;
@@ -20,7 +34,11 @@ class RedBall implements Ball {
   }
   void run(int number) { //useless function. Has use in other classes in interface ball but not in redball 
   }
-  void setAcceleration(float n) { //sets the acceleration of the ball
+  void setAcceleration(int level) { //sets the acceleration of the ball
+    float n = .01+.001*(level); 
+    if (level < 2) {
+      n = .01;
+    }
     acceleration = (acceleration/abs(acceleration))*n; //function to set acceleration
     print(acceleration); 
   }
@@ -51,6 +69,9 @@ class RedBall implements Ball {
       fill(255, 255, 0);
       ellipse(xPos, yPos, size, size);
     }
+    xPosi();
+    yPosi();
+    acceleration();
   }
   void xPosi() //change xPos
   {
@@ -108,4 +129,3 @@ class RedBall implements Ball {
     size += (1+amount);
   }
 }
-

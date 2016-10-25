@@ -18,7 +18,6 @@ class gun implements boom {
   }
   void make() {
     if (shouldIrun == true) {
-      //println("I've drawn"); 
       fill(98, 88, 88); 
       ellipse(xPos, yPos, 10, 10);
       println(yPos);
@@ -65,4 +64,3 @@ class gun implements boom {
     }
   }
 }
-

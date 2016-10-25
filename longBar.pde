@@ -1,6 +1,5 @@
 //power-up for long bar
-class largeBar implements Powerup {
-  boolean timeChecker = false; 
+abstract class Powerup{
   float xPos = 0;
   float yPos = 0; 
   float theLength = 0;
@@ -8,13 +7,9 @@ class largeBar implements Powerup {
   float timePassed = 0;
   int randomNumbers = 5;
   boolean runOnce = false;
-  largeBar(float x, float y, float l) {
-    xPos = x;
-    yPos = y;
-    theLength = l;
-  }
-  void time() {
-    if (runOnce == false && score%randomNumbers == 0 && timeChecker == false && score != 0) {
+  boolean timeChecker = false; 
+  void time(){
+     if (runOnce == false && score%randomNumbers == 0 && timeChecker == false && score != 0) {
       randomNumbers = int(random(12) + 5); 
       timeChecker = true;
       shouldISetX = true;
@@ -25,17 +20,29 @@ class largeBar implements Powerup {
       shouldISetX = false;
     }
   }
-  void setX() {
+  void run(){}
+  void setX(){
     if (shouldISetX == true) {
       xPos = random(width - theLength - width*.1) + 1 + width*.1;
       shouldISetX = false;
     }
   }
-  void setY() {
+  void setY(){
     if (timeChecker == true) {
       yPos = yPos + velocity;
     }
   }
+  void gameOver(){}
+  abstract boolean accept();
+}
+
+class largeBar extends Powerup {
+  largeBar(float x, float y, float l) {
+    xPos = x;
+    yPos = y;
+    theLength = l;
+  }
+
   void run() {
     if (timeChecker == true) {
       fill(0, 255, 0);

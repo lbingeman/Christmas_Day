@@ -39,14 +39,7 @@ interface boom { //interface for the gun
   void yPosi();
   void shouldIKeepDrawing();
 }
-interface Powerup { //interface for power-ups 
-  void time(); 
-  void run();
-  void setX();
-  void setY();
-  void gameOver();
-  boolean accept();
-}
+
 interface bricksLevel { //interface for the brick levels
   void nextLevel(float levelNumber);
 }
@@ -54,23 +47,11 @@ interface Brick { //interface for bricks
   void display();
   boolean intersect(float numberX, float numberY);
 }
-interface Ball { //interface for balls
-  void update();
-  void bounceBack();
-  void xPosi();
-  void restart();
-  void yPosi();
-  boolean acceleration(); 
-  float getX();
-  float getY();
-  void levelUp();
-  void setAcceleration(float number);
-  void run(int number);
-}
+
 
 void setup()
 {
-  createGUI();
+  //createGUI();
   frameRate(100);
   img = loadImage("background.gif"); //load background
   startImg = loadImage("christmasDay.jpg"); //load starting rule screen
@@ -108,4 +89,3 @@ void stop() //code for stopping music
   song1.close();
   super.stop();
 }
-

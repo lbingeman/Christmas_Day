@@ -1,5 +1,5 @@
 void gameOverButton() {
-  textfield1.setText(textfield1.getDefaultText());
+  //textfield1.setText(textfield1.getDefaultText());
   numberOfPlays = numberOfPlays + 1; 
   highScoreNameEnter = false; 
   song1.mute(); 
@@ -113,4 +113,3 @@ void mousePressed() {
     ball1.restart();
   }
 }
-
