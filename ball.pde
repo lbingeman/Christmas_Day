@@ -1,50 +1,60 @@
 //code for object redBall, the main play ball
 abstract class Ball { //interface for balls
-  void update(){}
-  void bounceBack(){}
-  void xPosi(){}
+  protected float size = 0;
+  protected float xPos = 0;
+  protected float yPos = 0;
+  protected float velocityY = 0;
+  protected float velocityYInital = 0; 
+  protected float velocityX = 1;
+  protected float acceleration = .01; 
+  protected boolean checker = true;
+  protected boolean doIDraw = false; 
+  protected color ball_color = color(255,255,0);
+  abstract void update();
+  void bounceBack(){
+    velocityY = -velocityY;
+    score = score + 10;
+  }
   void restart(){}
-  void yPosi(){}
+  void xPosi(){
+    if (doIDraw == true) {
+      xPos = xPos + velocityX;
+    }
+  }
+  void yPosi(){
+    if (doIDraw == true) {
+      velocityY = velocityY + acceleration;
+      yPos = yPos + velocityY;
+    }
+  }
   abstract boolean acceleration();
-  abstract float getX();
-  abstract float getY();
+  float getX() { //get the x position
+    return xPos;
+  } 
+  float getY() { //get the y position
+    return yPos;
+  } 
   void levelUp(){}
-  void setAcceleration(float number){}
-  void run(int number){}
-}
-
-class RedBall extends Ball {
-  float size = 0;
-  float xPos = 0;
-  float yPos = 0;
-  float velocityY = 0;
-  float velocityYInital = 0; 
-  float velocityX = 1;
-  float acceleration = .01; 
-  boolean checker = true;
-  boolean doIDraw = true; 
-  float frameRateNumber = 100;
-  float currentNumber = 0; 
-  //constructor
-  RedBall(float x, float y, float s)
-  {
-    xPos = x;
-    yPos = y;
-    size = s;
-  }
-  void run(int number) { //useless function. Has use in other classes in interface ball but not in redball 
-  }
-  void setAcceleration(int level) { //sets the acceleration of the ball
+  void setAcceleration(float level){
     float n = .01+.001*(level); 
     if (level < 2) {
       n = .01;
     }
     acceleration = (acceleration/abs(acceleration))*n; //function to set acceleration
-    print(acceleration); 
   }
-  void bounceBack() { //function to bounce ball back 
-    velocityY = -velocityY;
-    score = score + 10;
+  void run(int number){}
+}
+
+class RedBall extends Ball { 
+  float frameRateNumber = 100;
+  float currentNumber = 0; 
+  //constructor
+  RedBall(float x, float y, float s)
+  {
+    doIDraw = true;
+    xPos = x;
+    yPos = y;
+    size = s;
   }
   void restart() { //reset ball to original state
     xPos = random(width - 50); //randomize where ball starts
@@ -54,28 +64,16 @@ class RedBall extends Ball {
     acceleration = .01;
     velocityX = 0.5;
   }
-  void levelUp() { //function not used
-  }
-  float getX() { //get the x position
-    return xPos;
-  } 
-  float getY() { //get the y position
-    return yPos;
-  } 
   void update() //update the drawing
   {
     if (doIDraw == true) { //if I should draw run this loop 
       noStroke(); 
-      fill(255, 255, 0);
+      fill(ball_color);
       ellipse(xPos, yPos, size, size);
     }
     xPosi();
     yPosi();
     acceleration();
-  }
-  void xPosi() //change xPos
-  {
-    xPos = xPos + velocityX;
   }
   void yPosi() //change y psotion 
   {
@@ -117,15 +115,15 @@ class RedBall extends Ball {
     }
     return true;
   } 
-  void mouseClick() { //useless function (used in earlier versions). Not called
-    if (mousePressed == true) {
-      xPos = mouseX;
-      yPos = mouseY;
-      velocityY = 0;
-    }
-  } 
-  void grow(int amount) //useless function (used in earlier versions). Not called
-  {
-    size += (1+amount);
-  }
+  //void mouseClick() { //useless function (used in earlier versions). Not called
+  //  if (mousePressed == true) {
+  //    xPos = mouseX;
+  //    yPos = mouseY;
+  //    velocityY = 0;
+  //  }
+  //} 
+  //void grow(int amount) //useless function (used in earlier versions). Not called
+  //{
+  //  size += (1+amount);
+  //}
 }

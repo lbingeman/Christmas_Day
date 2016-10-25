@@ -68,20 +68,13 @@ void draw()
     for (int i = 0; i < multiBalls.size(); i++)
     {
       otherBall b = (otherBall) multiBalls.get(i);
-      if (theLevel < 2) {
-        b.setAcceleration(.01);
-      }
-      else {
-        b.setAcceleration(.01+.001*(theLevel));
-      }
+      b.setAcceleration(theLevel);
       b.update(); 
-      b.xPosi();
-      b.yPosi();
-      b.acceleration();
       //check for intersection between extra balls and bricks 
       for (int j = 0; j < bricks.size(); j++)
       {
         rowBrick bb = (rowBrick) bricks.get(j);
+        println("Other ball coords" + b.getX() + " " + b.getY());
         if (bb.intersect(b.getX(), b.getY()))
         {
           time = millis(); 

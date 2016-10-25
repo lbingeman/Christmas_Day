@@ -1,14 +1,5 @@
 //code for running the extra balls 
 class otherBall extends Ball {
-  float size = 0;
-  float xPos = 0;
-  float yPos = 250;
-  float velocityY = 0;
-  float velocityYInital = 0; 
-  float velocityX = 1;
-  float acceleration = .01; 
-  boolean checker = true;
-  boolean doIDraw = false; 
   //constructor
   otherBall(float x, float y, float s)
   {
@@ -26,13 +17,6 @@ class otherBall extends Ball {
       restart();
     }
   }
-  void setAcceleration(float n) {
-    acceleration = (acceleration/abs(acceleration))*n;
-  }
-  void bounceBack() {
-    velocityY = -velocityY;
-    score = score + 10;
-  }
   void restart() {
     xPos = 0;
     yPos = 0;
@@ -47,12 +31,6 @@ class otherBall extends Ball {
       acceleration *= 1.1;
     }
   }
-  float getX() {
-    return xPos;
-  } 
-  float getY() {
-    return yPos;
-  } 
   void update()
   {
     if (doIDraw == true) {
@@ -60,20 +38,23 @@ class otherBall extends Ball {
       fill(255, 0, 0);
       ellipse(xPos, yPos, size, size);
     }
+    xPosi();
+    yPosi();
+    acceleration();
   }
-  void xPosi() 
-  { 
-    if (doIDraw == true) {
-      xPos = xPos + velocityX;
-    }
-  }
-  void yPosi() 
-  {
-    if (doIDraw == true) {
-      velocityY = velocityY + acceleration;
-      yPos = yPos + velocityY;
-    }
-  } 
+  //void xPosi() 
+  //{ 
+  //  if (doIDraw == true) {
+  //    xPos = xPos + velocityX;
+  //  }
+  //}
+  //void yPosi() 
+  //{
+  //  if (doIDraw == true) {
+  //    velocityY = velocityY + acceleration;
+  //    yPos = yPos + velocityY;
+  //  }
+  //} 
   boolean acceleration() {
     if (yPos <= 0 && checker == true) {
       checker = false;
@@ -103,15 +84,15 @@ class otherBall extends Ball {
     }
     return true;
   } 
-  void mouseClick() {
-    if (mousePressed == true) {
-      xPos = mouseX;
-      yPos = mouseY;
-      velocityY = 0;
-    }
-  } 
-  void grow(int amount)
-  {
-    size += (1+amount);
-  }
+  //void mouseClick() {
+  //  if (mousePressed == true) {
+  //    xPos = mouseX;
+  //    yPos = mouseY;
+  //    velocityY = 0;
+  //  }
+  //} 
+  //void grow(int amount)
+  //{
+  //  size += (1+amount);
+  //}
 }
